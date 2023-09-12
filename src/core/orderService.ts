@@ -24,30 +24,19 @@ export class OrderService {
       return;
     }
 
-    if (!this._location.coords) {
-      return;
-    }
-
-    await this.getCrews();
-
     const result = await createOrder({
       address: this._location.address,
-      coords: this._location.coords,
+      coords: this._location.coords as number[],
       source_time: Date.now(),
       crew_id: this._crews.list[0].crew_id,
     });
-
     console.log(result);
   };
 
   getCrews = async () => {
-    if (!this._location.coords) {
-      return;
-    }
-
     const result = await getCrews({
       address: this._location.address,
-      coords: this._location.coords,
+      coords: this._location.coords as number[],
       source_time: Date.now(),
     });
 

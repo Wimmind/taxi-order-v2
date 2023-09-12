@@ -15,6 +15,6 @@ export class Crews {
   }
 
   setList = (value: ICrews["list"]) => {
-    this.list = value.sort((a, b) => a.distance - b.distance).reverse();
+    this.list = value.sort((a, b) => b.distance - a.distance).reverse();
   };
 }

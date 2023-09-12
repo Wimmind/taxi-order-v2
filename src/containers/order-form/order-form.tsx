@@ -30,7 +30,7 @@ export const OrderForm: FC = observer(() => {
       const object = result.geoObjects.get(0);
 
       if (!object.geometry) {
-        location.setError("Адрес не найден"); //todo
+        location.setError("Адрес не найден");
         return;
       }
 
@@ -38,6 +38,7 @@ export const OrderForm: FC = observer(() => {
       const coords = object.geometry.getCoordinates();
 
       location.setCoords(coords);
+      orderService.getCrews();
     }
   };
 
